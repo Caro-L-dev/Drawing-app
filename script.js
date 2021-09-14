@@ -41,7 +41,7 @@ function draw(x2, y2) {
     x = x2;
     y = y2;
   }
-}
+};
 
 function drawLine(x1, y1, x2, y2) {
   outline.beginPath();
@@ -50,4 +50,9 @@ function drawLine(x1, y1, x2, y2) {
   outline.strokeStyle = outline.fillStyle;
   outline.lineWith = penSize * 2;
   outline.stroke();
-}
+};
+
+
+document.querySelector(".refresh").addEventListener('click', function () {
+    outline.clearRect(0, 0, canvas.width, canvas.height);
+})
