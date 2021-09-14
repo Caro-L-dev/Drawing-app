@@ -26,7 +26,7 @@ canvas.addEventListener("mousemove", (event) => {
   draw(event.offsetX, event.offsetY);
 });
 
-outline.fillStyle = "blue";
+outline.fillStyle = "hotpink";
 outline.strokeStyle = outline.fillStyle;
 
 function draw(x2, y2) {
@@ -55,4 +55,17 @@ function drawLine(x1, y1, x2, y2) {
 
 document.querySelector(".refresh").addEventListener('click', function () {
     outline.clearRect(0, 0, canvas.width, canvas.height);
-})
+});
+
+const selectColor = (element) => {
+
+    removeActiveCircleColor();
+    outline.fillStyle = element.getAttribute("data-color");
+    element.classList.add("active");
+}
+
+const removeActiveCircleColor = () => {
+    colorCircle.forEach((circle) => {
+        circle.classList.remove("active");
+    });
+}
